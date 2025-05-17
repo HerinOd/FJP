@@ -5,8 +5,8 @@ import java.util.Arrays;
 public class Main {
 
     public static void main(String[] args) {
-        String story = "Bluvia, who sets out in revenge for Radley's murder, " +
-                "and Judo, a soldier who becomes involved in a conflict between her militia and a religious cult.";
+        String story = "Bluvia, who sets out in revenge for Radley's murder." +
+                "\nMeanwhile, Judo, a soldier who becomes involved in a conflict between her militia and a religious cult.";
         System.out.println(story);
         byte x = 18;
         short time = (short)(x + 12);
