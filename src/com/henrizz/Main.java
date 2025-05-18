@@ -11,11 +11,13 @@ public class Main {
         byte x = 18;
         short time = (short)(x + 12);
         String searchFor = "Judoni";
+        String homeTown = "Jackson";
         String destination = "Seatle";
         String[] coordinate = { "1890", "87", "8670" };
         String[][] info = { { "Bluvia", "Macky", "Digger", "Maxine" }
                                      ,{ "21", "21", "23", "19" } };
         System.out.println("Find: " + searchFor);
+        System.out.println("Start from: " + homeTown);
         System.out.println("Go to: " + destination);
         System.out.println("Location: " + Arrays.toString(coordinate));
         System.out.println("Last: " + time + " days.");
