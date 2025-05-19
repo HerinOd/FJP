@@ -1,6 +1,7 @@
 package com.henrizz;
 
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class Main {
 
@@ -22,5 +23,16 @@ public class Main {
         System.out.println("Location: " + Arrays.toString(coordinate));
         System.out.println("Last: " + time + " days.");
         System.out.println("Members and Ages: " + Arrays.deepToString(info));
+        System.out.println("----Bluvia arrives at the hospital and meets Nora. " +
+                "She chases her to the corner in the basement and interrogates her.----");
+        System.out.println("Bluvia to Nora: \"Where's Judo?\".");
+        System.out.println("Nora: \"No, I won't give up on my friend\".");
+        System.out.println("Bluvia's calmness gradually fades away.");
+        System.out.print("Bluvia grabs a water pipe nearby and ruthlessly ");
+        Scanner interaction = new Scanner(System.in);
+        String action = interaction.nextLine().trim();
+        System.out.println("Nora's blood splattered all over.");
+        System.out.println("----End scene----");
+        System.out.println("Still Bluey traumatizes about the pipe which she " + action);
      }
 }
