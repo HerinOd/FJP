@@ -26,10 +26,12 @@ public class Main {
         NumberFormat percent = NumberFormat.getPercentInstance();
         String annualinterest = percent.format(annualinterest2);
 
+        System.out.println("====== MORTGAGE CALCULATOR ======");
         System.out.println("Principal: " + principal);
         System.out.println("Annual Interest Rate: " + annualinterest);
         System.out.println("Period (Years): " + period);
         System.out.println("Mortgage: " + mortgage);
+        System.out.println("=================================");
 
      }
 }
