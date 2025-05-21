@@ -7,31 +7,29 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
+    Scanner input = new Scanner(System.in);
+        System.out.print("Your Principal: ");
+        float principal = input.nextFloat();
+        System.out.print("The annual interest rate: ");
+        float annualinterest1 = input.nextFloat();
+        System.out.print("Your Period (Years): ");
+        byte period = input.nextByte();
 
-        Scanner input = new Scanner(System.in);
+        float annualinterest2 = annualinterest1 / 100;
+        float monthlyinterest = annualinterest2 / 12;
+        double mortgage0 = Math.pow(1 + monthlyinterest, period * 12);
+        double mortgage1 = monthlyinterest * mortgage0;
+        double mortgage2 = mortgage0 - 1;
+        double mortgage3 = principal * (mortgage1 / mortgage2);
+        NumberFormat currency = NumberFormat.getCurrencyInstance();
+        String mortgage = currency.format(mortgage3);
         NumberFormat percent = NumberFormat.getPercentInstance();
-        System.out.println(" What is your name?:");
-        String name = input.nextLine();
-        System.out.println("How old are you?:");
-        byte age = input.nextByte();
-        System.out.println("What is your GPA?:");
-        float gpa = input.nextFloat();
-        input.nextLine();
-        System.out.println("What subjects have you enrolled in?:");
-        String subject1 = input.nextLine();String subject2 = input.nextLine();String subject3 = input.nextLine();
-        String[] subjects = { subject1, subject2, subject3 };
-        String gpaPercent = percent.format(gpa);
+        String annualinterest = percent.format(annualinterest2);
 
-        String code1 = name.substring(0,1) + name.substring(1,2);
-        int code2 = (int)(Math.random()*1000);
+        System.out.println("Principal: " + principal);
+        System.out.println("Annual Interest Rate: " + annualinterest);
+        System.out.println("Period (Years): " + period);
+        System.out.println("Mortgage: " + mortgage);
 
-        //Profile Generator:
-        System.out.println("\n====== STUDENT PROFILE =====\n");
-        System.out.println("Name: " + name);
-        System.out.println("Age: " + age);
-        System.out.println("GPA: " + gpaPercent);
-        System.out.println("Subjects :" + Arrays.toString(subjects));
-        System.out.println("Student Code: " + code1 + code2);
-        System.out.println("\n============================\n");
      }
 }
