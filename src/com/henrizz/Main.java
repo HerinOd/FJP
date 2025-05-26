@@ -18,9 +18,12 @@ public class Main {
         int goodCount = 0;
         int averageCount = 0;
         int poorCount = 0;
+        int totalScore = 0;
+
+        int i = 0;
 
         //Nhập:
-        for (int i = 0; i < studentNumbers; i++) {
+        for (i = 0; i < studentNumbers; i++) {
             input.nextLine();
             System.out.println("Student " + (i + 1) + " :");
             System.out.print("Name: ");
@@ -44,18 +47,21 @@ public class Main {
                 classification[i] = "Poor";
                 poorCount++;
             }
-
         }
+        //Kết quả:
+
+            //Kết quả cá nhân:
         System.out.println();
         System.out.println("====== Result ======");
         System.out.println();
-        for (int i = 0; i < studentNumbers; i++) {
+        for (i = 0; i < studentNumbers; i++) {
             System.out.println("Student " + (i + 1) + " :");
             System.out.println("Name: " + names[i]);
             System.out.println("Grade: " + correctAnswers[i]);
             System.out.println("Classification: " + classification[i]);
             System.out.println();
         }
+            //Thống kê:
         System.out.println();
         System.out.println("====== Statistics ======");
         System.out.println();
@@ -63,5 +69,29 @@ public class Main {
         System.out.println("Good: " + goodCount);
         System.out.println("Average: " + averageCount);
         System.out.println("Poor: " + poorCount);
+        System.out.println();
+            //Học sinh xuất sắc:
+        System.out.println("====== Excellent Students ======");
+        System.out.println();
+        i = 0;
+        while (true) {
+            if ((i < studentNumbers) && (classification[i].equals("Excellent"))) {
+                System.out.println(names[i]);
+                i++;
+            }
+            else if ((i < studentNumbers) && (!classification[i].equals("Excellent"))) {
+                i++;
+                continue;
+            }
+            else
+                break;
+        }
+            //Điểm trung bình lớp:
+        for (i = 0; i < studentNumbers; i++){
+            totalScore += correctAnswers[i];
+        }
+        System.out.println();
+        System.out.println();
+        System.out.println("Total score: " + ((double)totalScore / studentNumbers));
         }
 }
