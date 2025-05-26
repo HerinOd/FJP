@@ -29,12 +29,12 @@ public class Main {
             System.out.println("Student " + (i + 1) + " :");
             System.out.print("Name: ");
             names[i] = input.nextLine();
-            System.out.print("Numbers of correct answers: ");
-            tempScore = input.nextInt();
-            while (tempScore < 0 || tempScore > 10){
-                System.out.print("Please type your correct score: ");
+            do {
+                System.out.print("Numbers of correct answers (0-10): ");
                 tempScore = input.nextInt();
-            }
+                if (tempScore < 0 || tempScore > 10)
+                    System.out.println("Invalid. Try Again.");
+            } while (tempScore < 0 || tempScore > 10);
             correctAnswers[i] = tempScore;
             //Phân loại:
             if (correctAnswers[i] >= 8) {
@@ -87,7 +87,6 @@ public class Main {
             }
             else if ((i < studentNumbers) && (!classification[i].equals("Excellent"))) {
                 i++;
-                continue;
             }
             else
                 break;
