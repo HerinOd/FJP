@@ -21,6 +21,7 @@ public class Main {
         int totalScore = 0;
 
         int i = 0;
+        int tempScore;
 
         //Nhập:
         for (i = 0; i < studentNumbers; i++) {
@@ -29,7 +30,12 @@ public class Main {
             System.out.print("Name: ");
             names[i] = input.nextLine();
             System.out.print("Numbers of correct answers: ");
-            correctAnswers[i] = input.nextInt();
+            tempScore = input.nextInt();
+            while (tempScore < 0 || tempScore > 10){
+                System.out.print("Please type your correct score: ");
+                tempScore = input.nextInt();
+            }
+            correctAnswers[i] = tempScore;
             //Phân loại:
             if (correctAnswers[i] >= 8) {
                 classification[i] = "Excellent";
