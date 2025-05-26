@@ -5,44 +5,63 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        //Candidates Evaluation System Project:
 
         Scanner input = new Scanner(System.in);
+        System.out.print("How many students ?: ");
+        int studentNumbers = input.nextInt();
 
-        System.out.print("Your name: ");
-        String name = input.nextLine();
-        System.out.print("Your age: ");
-        byte age = input.nextByte();
-        System.out.print("Your experience (Years): ");
-        byte experience = input.nextByte();
-        System.out.print("Your GPA: ");
-        double gpa = input.nextDouble();
-        System.out.print("Do you have a 6.5 Ielts score? (true/false): ");
-        boolean ieltsScore = input.nextBoolean();
-        System.out.print("Do you have any criminal records? (true/false): ");
-        boolean criminalRecords = input.nextBoolean();
+        //Lưu trữ:
+        String[] names = new String[studentNumbers];
+        int[] correctAnswers = new int[studentNumbers];
+        String[] classification = new String[studentNumbers];
+        int excellentCount = 0;
+        int goodCount = 0;
+        int averageCount = 0;
+        int poorCount = 0;
 
-        boolean isEligible = (age >= 22)
-                         && ((experience >= 2) || (gpa >= 3.2))
-                         && (ieltsScore == true)
-                         && (criminalRecords == false);
+        //Nhập:
+        for (int i = 0; i < studentNumbers; i++) {
+            input.nextLine();
+            System.out.println("Student " + (i + 1) + " :");
+            System.out.print("Name: ");
+            names[i] = input.nextLine();
+            System.out.print("Numbers of correct answers: ");
+            correctAnswers[i] = input.nextInt();
+            //Phân loại:
+            if (correctAnswers[i] >= 8) {
+                classification[i] = "Excellent";
+                excellentCount++;
+            }
+            else if (correctAnswers[i] >= 6) {
+                classification[i] = "Good";
+                goodCount++;
+            }
+            else if (correctAnswers[i] >= 4) {
+                classification[i] = "Average";
+                averageCount++;
+            }
+            else {
+                classification[i] = "Poor";
+                poorCount++;
+            }
 
-        String classification;
-        if ((isEligible == true) && (gpa >= 3.8))
-            classification = "Excellent candidate";
-        else if ((isEligible == true) && (gpa >= 3.2))
-            classification = "Potential candidate";
-        else if (isEligible == true)
-            classification = "Average candidate";
-        else
-            classification = "Denied";
-
-        System.out.println("====== YOUR RESULT ======");
-        System.out.println("Name: " + name);
-        System.out.println("Eligible for interview: " + isEligible);
-        System.out.println("Classification: " + classification);
-
-
-
-    }
+        }
+        System.out.println();
+        System.out.println("====== Result ======");
+        System.out.println();
+        for (int i = 0; i < studentNumbers; i++) {
+            System.out.println("Student " + (i + 1) + " :");
+            System.out.println("Name: " + names[i]);
+            System.out.println("Grade: " + correctAnswers[i]);
+            System.out.println("Classification: " + classification[i]);
+            System.out.println();
+        }
+        System.out.println();
+        System.out.println("====== Statistics ======");
+        System.out.println();
+        System.out.println("Excellent: " + excellentCount);
+        System.out.println("Good: " + goodCount);
+        System.out.println("Average: " + averageCount);
+        System.out.println("Poor: " + poorCount);
+        }
 }
