@@ -1,102 +1,53 @@
 package com.henrizz;
 
+import java.text.NumberFormat;
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
+        final byte MONTHS_IN_YEAR = 12;
+        final byte PERCENT = 100;
 
-        Scanner input = new Scanner(System.in);
-        System.out.print("How many students ?: ");
-        int studentNumbers = input.nextInt();
+        int principal = 0;
+        float monthlyInterest = 0;
+        int numberOfPayments = 0;
 
-        //Lưu trữ:
-        String[] names = new String[studentNumbers];
-        int[] correctAnswers = new int[studentNumbers];
-        String[] classification = new String[studentNumbers];
-        int excellentCount = 0;
-        int goodCount = 0;
-        int averageCount = 0;
-        int poorCount = 0;
-        int totalScore = 0;
+        Scanner scanner = new Scanner(System.in);
 
-        int i = 0;
-        int tempScore;
-
-        //Nhập:
-        for (i = 0; i < studentNumbers; i++) {
-            input.nextLine();
-            System.out.println("Student " + (i + 1) + " :");
-            System.out.print("Name: ");
-            names[i] = input.nextLine();
-            do {
-                System.out.print("Numbers of correct answers (0-10): ");
-                tempScore = input.nextInt();
-                if (tempScore < 0 || tempScore > 10)
-                    System.out.println("Invalid. Try Again.");
-            } while (tempScore < 0 || tempScore > 10);
-            correctAnswers[i] = tempScore;
-            //Phân loại:
-            if (correctAnswers[i] >= 8) {
-                classification[i] = "Excellent";
-                excellentCount++;
-            }
-            else if (correctAnswers[i] >= 6) {
-                classification[i] = "Good";
-                goodCount++;
-            }
-            else if (correctAnswers[i] >= 4) {
-                classification[i] = "Average";
-                averageCount++;
-            }
-            else {
-                classification[i] = "Poor";
-                poorCount++;
-            }
-        }
-        //Kết quả:
-
-            //Kết quả cá nhân:
-        System.out.println();
-        System.out.println("====== Result ======");
-        System.out.println();
-        for (i = 0; i < studentNumbers; i++) {
-            System.out.println("Student " + (i + 1) + " :");
-            System.out.println("Name: " + names[i]);
-            System.out.println("Grade: " + correctAnswers[i]);
-            System.out.println("Classification: " + classification[i]);
-            System.out.println();
-        }
-            //Thống kê:
-        System.out.println();
-        System.out.println("====== Statistics ======");
-        System.out.println();
-        System.out.println("Excellent: " + excellentCount);
-        System.out.println("Good: " + goodCount);
-        System.out.println("Average: " + averageCount);
-        System.out.println("Poor: " + poorCount);
-        System.out.println();
-            //Học sinh xuất sắc:
-        System.out.println("====== Excellent Students ======");
-        System.out.println();
-        i = 0;
         while (true) {
-            if ((i < studentNumbers) && (classification[i].equals("Excellent"))) {
-                System.out.println(names[i]);
-                i++;
-            }
-            else if ((i < studentNumbers) && (!classification[i].equals("Excellent"))) {
-                i++;
-            }
-            else
+            System.out.print("Principal: ");
+            principal = scanner.nextInt();
+            if (principal >= 1000 && principal <= 1_000_000)
                 break;
+            System.out.println("Enter a value between 1000 and 1000000");
         }
-            //Điểm trung bình lớp:
-        for (i = 0; i < studentNumbers; i++){
-            totalScore += correctAnswers[i];
+
+        while (true) {
+            System.out.print("Annual Interest Rate: ");
+            float annualInterest = scanner.nextFloat();
+            if (annualInterest >= 1 && annualInterest <= 30) {
+                monthlyInterest = annualInterest / PERCENT / MONTHS_IN_YEAR;
+                break;
+            }
+            System.out.println("Enter a value between 1 and 30");
         }
-        System.out.println();
-        System.out.println();
-        System.out.println("Total score: " + ((double)totalScore / studentNumbers));
+
+        while (true) {
+            System.out.print("Period (Years): ");
+            byte years = scanner.nextByte();
+            if (years >= 1 && years <= 30) {
+                numberOfPayments = years * MONTHS_IN_YEAR;
+                break;
+            }
+            System.out.println("Enter a value between 1 and 30.");
         }
+
+        double mortgage = principal
+                * (monthlyInterest * Math.pow(1 + monthlyInterest, numberOfPayments))
+                / (Math.pow(1 + monthlyInterest, numberOfPayments) - 1);
+
+        String mortgageFormatted = NumberFormat.getCurrencyInstance().format(mortgage);
+        System.out.println("Mortgage: " + mortgageFormatted);
+    }
 }
