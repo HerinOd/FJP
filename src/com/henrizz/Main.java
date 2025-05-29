@@ -6,6 +6,7 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
+                                                        //Mortgage Calculator:
         final byte MONTHS_IN_YEAR = 12;
         final byte PERCENT = 100;
 
