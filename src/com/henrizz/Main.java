@@ -7,7 +7,7 @@ public class Main {
     static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        Company company = new Company(5);
+        Company company = new Company(3);
         while (true) {
             byte choice;
             menuCompanyManager();

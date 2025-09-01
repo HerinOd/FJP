@@ -2,7 +2,7 @@
   <artifact type="jar" name="HelloJava:jar">
     <output-path>$PROJECT_DIR$/out/artifacts/HelloJava_jar</output-path>
     <root id="archive" name="HelloJava.jar">
-      <element id="module-output" name="HelloJava" />
+      <element id="module-output" name="Herin" />
     </root>
   </artifact>
 </component>
