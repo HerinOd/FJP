@@ -3,7 +3,7 @@ package com.henrizz_java;
 import java.util.Scanner;
 
 public class Main {
-
+//Hi, Hello World, check check 123....
     static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
