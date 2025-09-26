@@ -1,4 +1,4 @@
-package com.henrizz;
+package com.henrizz_java;
 
 public class Contractor implements IPayable{
     private final String name;

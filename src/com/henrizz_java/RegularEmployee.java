@@ -1,4 +1,4 @@
-package com.henrizz;
+package com.henrizz_java;
 
 public class RegularEmployee extends Employee{
     private final double salary;

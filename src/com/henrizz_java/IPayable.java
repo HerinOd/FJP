@@ -1,4 +1,4 @@
-package com.henrizz;
+package com.henrizz_java;
 
 public interface IPayable {
     String getName();

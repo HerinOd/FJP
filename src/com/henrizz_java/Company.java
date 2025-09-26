@@ -1,7 +1,7 @@
-package com.henrizz;
+package com.henrizz_java;
 
 import java.text.NumberFormat;
-
+//Hi
 public class Company {
     private final IPayable[] payables;
     private int payableCount;
