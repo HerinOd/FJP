@@ -1,4 +1,4 @@
-package com.henrizz_java;
+package com.henrizz_java.part2;
 
 import java.util.Scanner;
 

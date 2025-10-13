@@ -1,4 +1,4 @@
-package com.henrizz_java;
+package com.henrizz_java.part2;
 
 public abstract class Employee implements IPayable{
     private final String id;

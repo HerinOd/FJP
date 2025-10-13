@@ -1,4 +1,4 @@
-package com.henrizz_java;
+package com.henrizz_java.part2;
 
 public class Manager extends Employee{
     private final double baseSalary;
