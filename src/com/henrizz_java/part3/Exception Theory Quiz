@@ -1,0 +1,20 @@
+Câu 1:
+Theo tôi thì thiết kế này nên được để là checked, vì đây là 1 lỗi
+khá là khách quan, nó ko xuất phát từ bản thân thiết kế/ code của
+mình, và ta nên lường trước được nó
+Câu 2:
+1. throw
+2. throws
+Câu 3:
+khối code catch (IOException e) sẽ bắt exceptions trước, và
+ta nên catch exception cụ thể trước rồi mới tới chung chung sau
+Câu 4:
+Nên dùng if-else để xử lí nhằm nhanh gọn hơn, và vì việc nhập
+sai dữ liệu nó rất là phổ biến và hay xảy ra nên ta nên xử
+lí ngay tại chỗ
+Câu 5:
+Nhằm làm giảm gánh nặng cho method main, đôi khi main bị ném về nhiều loại exception khác
+nhau và mỗi loại lại phải có thêm 1 catch hoặc 1 catch duy nhất phải nắm được có những loại
+nào được ném về. Thay vào đó việc bọc các lỗi riêng lẻ đó vào 1 exception chung hơn sẽ giúp
+main giảm gánh nặng, có nhiều exception thì main ngầm định nó là lỗi chung chung và nếu muốn
+biết thêm chi tiết về lỗi nào đó để xử lí tiếp thì hoàn toàn có thể làm được
