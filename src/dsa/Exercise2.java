@@ -9,6 +9,7 @@ public class Exercise2 {
         System.out.print("Enter the length of your array: ");
         int arraylength = scanner.nextInt();
         int[] array = new int[arraylength];
+
         System.out.println("Enter your numbers: ");
         for (int i = 0; i < arraylength; i++) {
             array[i] = scanner.nextInt();

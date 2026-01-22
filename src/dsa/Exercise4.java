@@ -5,11 +5,14 @@ import java.util.Scanner;
 The program should print out the position of this name in the list. In case the name doesn’t appear in the list, the program should print out value -1. */
 public class Exercise4 {
     public static void main(String[] args) {
+
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter the length of your name array: ");
         int n = scanner.nextInt(); scanner.nextLine();
         //array's length
+
         String[] names = new String[n];
+
         System.out.println("Enter each name: ");
         for (int i = 0; i < n; i++) {
             names[i] = scanner.nextLine();
@@ -19,6 +22,7 @@ public class Exercise4 {
         String searchName = scanner.nextLine();
         int position = -1;
         //vị trí tên cần tìm
+
         for (int i = 0; i < names.length; i++) {
             if (names[i].equals(searchName)) {
                 position = i;

@@ -10,6 +10,7 @@ public class Exercise3 {
         System.out.print("Enter the length of your array: ");
         int n = scanner.nextInt(); //array's length
         int[] array = new int[n];
+
         System.out.println("Enter your numbers: ");
         for (int i = 0; i < n; i++) {
             array[i] = scanner.nextInt();
